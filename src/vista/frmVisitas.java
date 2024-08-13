@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.ctrlVisitas;
+import modelo.Visitas;
+
 /**
  *
  * @author Estudiante
@@ -15,6 +18,14 @@ public class frmVisitas extends javax.swing.JFrame {
      */
     public frmVisitas() {
         initComponents();
+    }
+    
+    public static void initFrmVisitas(){
+    Visitas modelo = new Visitas();
+    frmVisitas vista = new frmVisitas();
+    ctrlVisitas controlador = new ctrlVisitas(modelo, vista);
+    
+    vista.setVisible(true);
     }
 
     /**
@@ -42,7 +53,7 @@ public class frmVisitas extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnBuscarr = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jtbPacientes = new javax.swing.JTable();
         txtBusqueda = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,7 +105,7 @@ public class frmVisitas extends javax.swing.JFrame {
         btnBuscarr.setText("Buscar");
         jPanel1.add(btnBuscarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jtbPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -105,16 +116,16 @@ public class frmVisitas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jtbPacientes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 560, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 800, 190));
         jPanel1.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 340, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +165,7 @@ public class frmVisitas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmVisitas().setVisible(true);
+                initFrmVisitas();
             }
         });
     }
@@ -173,7 +184,7 @@ public class frmVisitas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    public javax.swing.JTable jtbPacientes;
     public javax.swing.JTextField txtBusqueda;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtEspecialidad;
